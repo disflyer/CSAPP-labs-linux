@@ -10,6 +10,8 @@ Use for study Computer Systems: A Programmer's Perspective's LAB.
 
 ## Quicky start
 
+First of all, you should install docker on your computer.
+
 ```shell
   docker compose up -d
 ```
