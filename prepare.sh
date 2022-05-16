@@ -1,0 +1,1 @@
+docker run -d -v .:/csapp_labs --name csapp_labs -ti disflyer/csapp_lab bash

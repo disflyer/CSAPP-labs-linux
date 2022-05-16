@@ -1,0 +1,8 @@
+version: '3.9'
+services:
+  csapplab:
+    container_name: csapp_ubuntu
+    image: disflyer/csapp_lab
+    volumes:
+      - .:/csapp_lab
+    tty: true

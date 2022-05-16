@@ -139,7 +139,7 @@ NOTES:
  *   Rating: 1
  */
 int bitAnd(int x, int y) {
-  return ~((~x) | (~y));
+  return 2;
 }
 /* 
  * getByte - Extract byte n from word x
@@ -150,7 +150,15 @@ int bitAnd(int x, int y) {
  *   Rating: 2
  */
 int getByte(int x, int n) {
-  return (x >> (n << 3)) & 0xFF;
+
+
+
+
+
+
+
+  return 2;
+
 }
 /* 
  * logicalShift - shift x to the right by n, using a logical shift
@@ -161,8 +169,7 @@ int getByte(int x, int n) {
  *   Rating: 3 
  */
 int logicalShift(int x, int n) {
-  int mask = ~(((0x1 << 31) >> n) << 1);
-  return (x >> n) & mask;
+  return 2;
 }
 /*
  * bitCount - returns count of number of 1's in word
@@ -172,20 +179,7 @@ int logicalShift(int x, int n) {
  *   Rating: 4
  */
 int bitCount(int x) {
-  int mask = 0x1;
-  mask |= mask << 8;
-  mask |= mask << 16;
-  int count = x & mask;
-  count += (x >> 1) & mask;
-  count += (x >> 2) & mask;
-  count += (x >> 3) & mask;
-  count += (x >> 4) & mask;
-  count += (x >> 5) & mask;
-  count += (x >> 6) & mask;
-  count += (x >> 7) & mask;
-  count += (count >> 16);
-  count += (count >> 8);
-  return count & 0xff;
+  return 2;
 }
 /* 
  * bang - Compute !x without using !
@@ -195,8 +189,7 @@ int bitCount(int x) {
  *   Rating: 4 
  */
 int bang(int x) {
-  int neg = ~x + 1;
-  return ((~(x | neg)) >> 31) & 0x1;
+  return 2;
 }
 /* 
  * tmin - return minimum two's complement integer 
@@ -205,7 +198,7 @@ int bang(int x) {
  *   Rating: 1
  */
 int tmin(void) {
-  return (0x1 << 31);
+  return 2;
 }
 /* 
  * fitsBits - return 1 if x can be represented as an 
@@ -217,9 +210,7 @@ int tmin(void) {
  *   Rating: 2
  */
 int fitsBits(int x, int n) {
-  int isNeg = x >> 31;
-  int shift = n + (~0);
-  return (!(x >> shift) & (!isNeg)) | (!((~x) >> shift) & isNeg);
+  return 2;
 }
 /* 
  * divpwr2 - Compute x/(2^n), for 0 <= n <= 30
@@ -230,9 +221,7 @@ int fitsBits(int x, int n) {
  *   Rating: 2
  */
 int divpwr2(int x, int n) {
-  int sign = x >> 31;
-  int bias = sign & ((1 << n) + (~0)); 
-  return (x + bias) >> n; // (x + k - 1) / k
+    return 2;
 }
 /* 
  * negate - return -x 
@@ -242,7 +231,7 @@ int divpwr2(int x, int n) {
  *   Rating: 2
  */
 int negate(int x) {
-  return (~x) + 1;
+  return 2;
 }
 /* 
  * isPositive - return 1 if x > 0, return 0 otherwise 
@@ -252,7 +241,7 @@ int negate(int x) {
  *   Rating: 3
  */
 int isPositive(int x) {
-  return !((x >> 31) | (!x)); 
+  return 2;
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
@@ -262,10 +251,7 @@ int isPositive(int x) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  int signX = (x >> 31) & 1;
-  int signY = (y >> 31) & 1;
-  int signSub = (~((y + (~x) + 1) >> 31)) & 1;
-  return ((signX ^ signY) & signX) + ((signX ^ signY ^ 1) & signSub);
+  return 2;
 }
 /*
  * ilog2 - return floor(log base 2 of x), where x > 0
@@ -289,11 +275,7 @@ int ilog2(int x) {
  *   Rating: 2
  */
 unsigned float_neg(unsigned uf) {
-  int mask = (1 << 31);
-  if ((uf & (~mask)) > (0xFF << 23)) { // 0xFF << 23 = 0 11111111 000...000
-    return uf;
-  }
-  return uf ^ mask; // 0 ^ 1 = 1, 1 ^ 1 = 0
+ return 2;
 }
 /* 
  * float_i2f - Return bit-level equivalent of expression (float) x
@@ -319,11 +301,5 @@ unsigned float_i2f(int x) {
  *   Rating: 4
  */
 unsigned float_twice(unsigned uf) {
-  int signMask = (1 << 31);
-  if ((uf & (~signMask)) >= (0xFF << 23)) {
-    return uf;
-  } else if ((uf & (0xFF << 23)) == 0) {
-    return (uf & ~(0x1FF << 23)) << 1 | (uf & signMask);
-  }
-  return uf + (1 << 23);
+  return 2;
 }

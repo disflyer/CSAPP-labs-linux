@@ -4,15 +4,26 @@ Book: Computer Systems: A Programmer's Perspective, 3/E (CS:APP3e)
 
 Labs for self-study, downloaded from: [http://csapp.cs.cmu.edu/3e/labs.html](http://csapp.cs.cmu.edu/3e/labs.html)
 
-ToDoList:
+## Usage:
 
-- Attack Lab
-- Cache Lab
-- Shell Lab
-- Malloc Lab
-- Proxy Lab
+Use for study Computer Systems: A Programmer's Perspective's LAB.
 
-Done:
+## Quicky start
 
-- Data Lab: except for `ilog2` & `float_i2f`
-- Bomb Lab: Phase 1 ~ 4
+```shell
+  docker compose up -d
+```
+
+when container is created, run:
+
+```shell
+  docker exec -it csapp_ubuntu bash
+```
+
+then, go to the target folder:
+
+```shell
+  cd /csapp_lab
+```
+
+Now, you can modify code on your mac or windows system. And run the command in lab's README in the container.
