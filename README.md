@@ -10,7 +10,7 @@ Use for study Computer Systems: A Programmer's Perspective's LAB.
 
 ## Quicky start
 
-First of all, you should install docker on your computer.
+First of all, you should install docker on your computer. Just search `docker download` by google for install.
 
 ```shell
   docker compose up -d
