@@ -28,4 +28,4 @@ then, go to the target folder:
   cd /csapp_lab
 ```
 
-Now, you can modify code on your mac or windows system. And run the command in lab's README by the container.
+Now, you can modify code on your mac system. And run the command in lab's README by the container.
