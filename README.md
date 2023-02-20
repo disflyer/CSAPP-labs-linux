@@ -11,6 +11,7 @@ Use for study Computer Systems: A Programmer's Perspective's LAB.
 ## Quicky start
 
 First of all, you should install docker on your computer. Just search `docker download` by google for install.
+You should execute all those command under the root of the this repository.
 
 ```shell
   docker compose up -d
@@ -28,4 +29,4 @@ then, go to the target folder:
   cd /csapp_lab
 ```
 
-Now, you can modify code on your mac system. And run the command in lab's README by the container.
+Now, you can modify code on your mac system by your IDE. And run the command in lab's README by the container. It should works.
