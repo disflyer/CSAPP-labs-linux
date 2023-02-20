@@ -17,13 +17,13 @@ You should execute all those command under the root of the this repository.
   docker compose up -d
 ```
 
-when container is created, run:
+when container is created, you should see `Attaching to csapp_ubuntu` on your terminal. Then you can run this command in a new terminal:
 
 ```shell
   docker exec -it csapp_ubuntu bash
 ```
 
-then, go to the target folder:
+you could see your terminal is connected to the docker container. You can go to the target folder by:
 
 ```shell
   cd /csapp_lab
